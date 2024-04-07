@@ -3,15 +3,15 @@ Title: "Professional Communication: Learning and Reflection"
 ---
 **Learnings**
 	Initially, the project was initialized as a Git repository, where version control was used to manage changes to the project codebase throughout Sprint 01 development. Git, a widely used version control system, was employed. Commits were made to track changes made to the codebase. Each commit had a meaningful commit message describing the changes made.
-	![[Pasted image 20240406125410.png]]
-	When implementing functionality for a user to create an item (aka a client), a view function was create to handle the HTTP POST request sent by the user when submitting the item creation form. Within this view function, a form instance was created from the Django Form class corresponding to the item creation form. The form's "is_valid()" method was used to check whether the submitted data was valid. If so, the form's "save()" method was called to create a new item instance with the validated data. After a successful creation, the user is redirected to a success page where they can return to the page where the item creation form is located.
-	![[Pasted image 20240406144923.png]]
+	![[Pasted image 20240406125410.png]]When implementing functionality for a user to create an item (aka a client), a view function was create to handle the HTTP POST request sent by the user when submitting the item creation form. Within this view function, a form instance was created from the Django Form class corresponding to the item creation form. The form's "is_valid()" method was used to check whether the submitted data was valid. If so, the form's "save()" method was called to create a new item instance with the validated data. After a successful creation, the user is redirected to a success page where they can return to the page where the item creation form is located.
+	![[Pasted image 20240406205242.png]]
 	Similarly, a view function was created to retrieve a list of items from the database using a Django ORM query. The retrieved list of items was passed to a template for rendering. In the template, HTML markup was used along the template tags and filters provided by Django to iterate over the list of items and display them correctly.
 	![[Pasted image 20240406131738.png]]
 	Bootstrap's predefined CSS classes and components were utilized to implement a responsive navigation menu. The "Navbar" component provided by Bootstrap was employed to create a two-option navigation bar. As seen below, Bootstrap classes were used to structure the navigation bar and make it responsive.
 	![[Pasted image 20240406132342.png]]
 	By applying these classes and components, the navigation menu was styled and made compatible with different screen sizes, ensuring a consistent experience across devices.
 	![[Pasted image 20240406143925.png]]
+
 
 **Sprint 01 Project Requirements**
 1. We first prepare the existing website's directory to be added to Github. After pushing our changes into our local directory, we create and switch to the branch for this sprint, "Sprint01".
@@ -22,8 +22,8 @@ Title: "Professional Communication: Learning and Reflection"
 **![](https://lh7-us.googleusercontent.com/i3Fa-6tElUoatoPEghTMwHkSVGATJDYYdmNiqmoFJm99EUULqY3XLpWG5UOfd7fq79-mE6aiunXx9Mc57AX8fap00yod1LngRB4M_7H8X5rXGC4mEZe1uyNSsqU1M78Obgr8XUDDFDwmDPGfrSnD0fc)**
 4. We also update the "views.py" file by defining the following homepage view (notice the return statement; the rendering arguments will be explained later).
 ![[Pasted image 20240406115200.png]]
-5. We also create a "urls.py" file and define a set path for the website's landing index or homepage (notice the other defined paths, which will be explained later).
-![[Pasted image 20240406115001.png]]
+5. We also create a "urls.py" file and define a set path for the website's landing index or homepage (notice the other defined paths, which will be implemented later).
+![[Pasted image 20240406205516.png]]
 6. Notice that a folder labeled "templates" exists within the existing directory. Inside this folder, within a second folder titled after the existing directory, we shall create and store a base_template.html file.
 ![[Pasted image 20240406122845.png]]
 7. Inside this same folder, we create and store an index.html file.
@@ -192,9 +192,11 @@ Title: "Professional Communication: Learning and Reflection"
 ![[Pasted image 20240406172930.png]]
 25. A demonstration of the website's capabilities may be found here:
 	**[https://uccs1.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=68154755-cc62-42f2-bce5-b14a018521ea&start=0](https://uccs1.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=68154755-cc62-42f2-bce5-b14a018521ea&start=0)**
+26. Update the main branch by merging it with the sprint01 branch code, making sure to tag the code as "Sprint 01". Do not delete the branch.
 
 
 **Reflection**
-	I learned literally nothing.
+	Reflecting on the sprint and full stack development utilizing agile methodologies, I found that breaking user stories into tasks was highly beneficial as it allowed for a clearer understanding of what needed to be done and facilitated better planning and time management. However, I noticed that sometimes tasks required more time than initially estimated, which highlights the importance of being flexible and adaptable in agile development. Other tasks took less time than estimated, mainly due to the prior documentation assembled throughout the course. While the estimates provided a rough guideline, utilizing version control, particularly Git, was instrumental in managing code changes as it provided a structured way to track modifications, revert changes if necessary, and ensure that I was working on the latest version of the codebase. This helped maintain code integrity and streamline the development process, enhancing overall productivity.
+	One of my biggest successes during this sprint was successfully implementing key features of the project according to the user stories and design specifications. Additionally, creating a useful and easily referrable UML Diagram for the Client Model aided in it's implementation and later migration into the database.
 	![[IMG_3269.jpg]]
-	I also learned
+	The most challenging aspect of the sprint was troubleshooting unexpected bugs or technical issues that arose during the development of deployment of lists and navigational bars with view, create, edit, or delete options. However, leveraging my previous online documentation and community resources proved invaluable in finding solutions and resolving these challenges efficiently. My biggest strength as a software developer lies in my problem-solving skills and ability to adapt to new technologies and frameworks. This allows me to overcome obstacles and deliver high-quality solutions within a set timeframe.
