@@ -13,15 +13,15 @@ def add_client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('client-added')  # Redirect to a success page
+            new_client = form.save()
+            return render(request, 'gr_construction_web/client_added.html', {'client': new_client})
     else:
         form = ClientForm()
     return render(request, 'gr_construction_web/add_client.html', {'form': form})
 
 
 def client_added(request):
-    return render(request, 'gr_construction_web/client_added.html')
+    return redirect('clients-list')
 
 
 def client_detail(request, pk):
@@ -42,5 +42,25 @@ def client_form(request, pk):
 
 
 def clients_list(request):
-    active_clients = Client.objects.filter(status='Active')
-    return render(request, 'gr_construction_web/clients_list.html', {'active_clients': active_clients})
+    clients = Client.objects.filter(status='Active')
+    return render(request, 'gr_construction_web/clients_list.html', {'clients': clients})
+
+
+def client_edit(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    if request.method == 'POST':
+        form = ClientForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('clients-list')
+    else:
+        form = ClientForm(instance=client)
+    return render(request, 'gr_construction_web/client_edit.html', {'form': form})
+
+
+def client_delete(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    if request.method == 'POST':
+        client.delete()
+        return redirect('clients-list')
+    return render(request, 'gr_construction_web/client_delete.html', {'client': client})

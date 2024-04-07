@@ -1,15 +1,64 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Client Added</title>
     <!-- Bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ede3d8;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #7172d8; /* Main banner color */
+            color: #fff; /* White text */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 5px solid #f0b356; /* Secondary banner color */
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar-brand img {
+            max-height: 200px;
+            padding: 5px;
+        }
+        .container-fluid {
+            padding-top: 20px;
+        }
+        .col-sm-10 {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+<div class="navbar">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'images/Main Logo.jpg' %}" alt="Main Logo">
+    </a>
+</div>
 
 <div class="container">
     <h2>Client Added Successfully!</h2>
-    <a href="{% url 'add_client' %}" class="btn btn-primary">Add Another Client</a>
+    <h3>New Client Details:</h3>
+    <p>Name: {{ client.name }}</p>
+    <p>Status: {{ client.status }}</p>
+    <p>Email: {{ client.email }}</p>
+    <p>Phone Number: {{ client.phone_number }}</p>
+    <p>Description: {{ client.description }}</p>
+    <a href="{% url 'add-client' %}" class="btn btn-primary">Add Another Client</a>
+    <a href="{% url 'clients-list' %}" class="btn btn-success">View Clients List</a>
 </div>
 
 </body>
