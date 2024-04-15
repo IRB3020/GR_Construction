@@ -1,0 +1,82 @@
+{% extends "gr_construction_web/base_template.html" %}
+{% load static %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #ede3d8;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .main-header {
+            background-color: #7172d8; /* Main banner color */
+            color: #fff; /* White text */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #f0b356; /* Secondary banner color */
+        }
+        .main-header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .portfolio-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .portfolio-container h2 {
+            color: #7172d8; /* Secondary banner color */
+        }
+        .portfolio-container p {
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #7172d8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #f0b356;
+        }
+    </style>
+</head>
+<body>
+<div class="main-header">
+    <h1>Welcome to GR Construction</h1>
+</div>
+<div class="container">
+    <p>GR Construction LLC provides high-quality services alongside a free estimate.</p>
+    <h3>Active Clients:</h3>
+    <ul>
+        {% for client in active_clients %}
+            <li>{{ client.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
+
+{% endblock %}
+
+

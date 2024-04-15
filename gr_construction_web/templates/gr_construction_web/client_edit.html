@@ -1,0 +1,25 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Client</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Client</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

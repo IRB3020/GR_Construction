@@ -1,0 +1,24 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if client %}Edit Client{% else %}Create New Client{% endif %}</title>
+</head>
+<body>
+    <div class="container">
+        <h2>{% if client %}Edit Client{% else %}Create New Client{% endif %}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% if client %}Update{% else %}Create{% endif %}</button>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

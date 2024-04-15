@@ -1,0 +1,28 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clients List</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Clients List</h2>
+        <ul>
+            {% for client in clients %}
+                <li>{{ client.name }} - <a href="{% url 'client-detail' client.id %}">View</a>
+                    | <a href="{% url 'client-edit' client.id %}">Edit</a>
+                    | <a href="{% url 'client-delete' client.id %}">Delete</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add-client' %}">Create New Client</a>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

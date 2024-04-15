@@ -1,0 +1,25 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Client Detail</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Client Detail</h2>
+        <p>Name: {{ client.name }}</p>
+        <p>Status: {{ client.status }}</p>
+        <p>Email: {{ client.email }}</p>
+        <p>Phone Number: {{ client.phone_number }}</p>
+        <p>Description: {{ client.description }}</p>
+        <a href="{% url 'clients-list' %}">Back to Clients List</a>
+    </div>
+</body>
+</html>
+
+{% endblock %}
