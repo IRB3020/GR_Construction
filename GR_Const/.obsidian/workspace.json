@@ -82,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "ba3be91a7b0e52b8",
@@ -161,6 +162,11 @@
   },
   "active": "bf7cc79a7e741279",
   "lastOpenFiles": [
+    "Pasted image 20240416135211.png",
+    "Pasted image 20240416131745.png",
+    "Pasted image 20240415223741.png",
+    "Pasted image 20240415223428.png",
+    "Pasted image 20240415115555.png",
     "Sprint 01.md",
     "Sprint 02.md",
     "create a link.md",
@@ -170,10 +176,6 @@
     "Pasted image 20240406172930.png",
     "Pasted image 20240406172735.png",
     "Pasted image 20240406172510.png",
-    "Pasted image 20240406172059.png",
-    "Pasted image 20240406171919.png",
-    "Welcome.md",
-    "Pasted image 20240406164445.png",
-    "Pasted image 20240406144923.png"
+    "Welcome.md"
   ]
 }
