@@ -1,0 +1,51 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSite Detail</title>
+    <style>
+        .worksite-detail-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .worksite-detail-info {
+            flex: 1;
+        }
+        .worksite-detail-image {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .worksite-detail-image img {
+            max-width: 75%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="worksite-detail-container">
+        <div class="worksite-detail-info">
+            <h1>{{ worksite.title }}</h1>
+            <p><strong>Address:</strong> <a href="{{ worksite.google_maps_url }}">{{ worksite.address }}</a></p>
+            <p><strong>Description:</strong> {{ worksite.description }}</p>
+            <a href="{% url 'client-detail' worksite.client.id %}">View Client</a>
+            <p><strong>Client:</strong> {{ worksite.client }}</p>
+            <a href="{% url 'bill-list' worksite.id %}">View Bills</a>
+            <p><strong>Total Bills:</strong> ${{ worksite.total_bills }}</p>
+            <p><a href="{% url 'worksite-list' %}">Back to Sites List</a></p>
+        </div>
+        <div class="worksite-detail-image">
+            {% if worksite.finished_image %}
+                <img src="{{ worksite.finished_image.url }}" alt="Finished Image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

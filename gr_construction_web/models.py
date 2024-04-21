@@ -11,8 +11,7 @@ class WorkSite(models.Model):
     address = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     client = models.ForeignKey('Client', on_delete=models.SET_NULL, null=True, blank=True)
-    bills = models.ManyToManyField('Bill', blank=True)
-    final_shot = models.ImageField(upload_to='worksites/finished', blank=True, null=True)
+    finished_image = models.ImageField(upload_to='worksites/finished', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -24,14 +23,19 @@ class WorkSite(models.Model):
         # Generate Google Maps URL based on the address
         return f"https://www.google.com/maps/search/?api=1&query={self.address}"
 
+    @property
+    def total_bills(self):
+        return sum(bill.amount for bill in self.bills.all())
+
 
 class Bill(models.Model):
     title = models.CharField(max_length=200)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    worksite = models.ForeignKey(WorkSite, on_delete=models.CASCADE, related_name='bills', null=True)
     date = models.DateField(_("Date"), default=date.today)
 
     def __str__(self):
-        return f"${self.amount}"
+        return f"{self.title} - ${self.amount}"
 
 
 class Client(models.Model):

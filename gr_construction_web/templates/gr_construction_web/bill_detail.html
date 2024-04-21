@@ -1,0 +1,21 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Detail</title>
+</head>
+<body>
+    <h1>Bill Detail</h1>
+    <p>Title: {{ bill.title }}</p>
+    <p><strong>Amount:</strong> ${{ bill.amount }}</p>
+    <p>Date: {{ bill.date }}</p>
+    <a href="{% url 'bill-list' worksite_id=bill.worksite.id %}">Back to Bill List</a>
+</body>
+</html>
+
+{% endblock %}

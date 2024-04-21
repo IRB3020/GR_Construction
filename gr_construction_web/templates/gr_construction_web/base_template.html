@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +46,7 @@
         .hello-msg {
             font-size: 18px;
             color: #000;
-            margin-left; 20px;
+            margin-left: 20px;
         }
     </style>
 </head>
@@ -71,6 +70,7 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     <a class="nav-link active" href="{% url 'register' %}">Register</a>
                     <a class="nav-link active" href="{% url 'clients-list' %}">Clients List</a>
+                    <a class="nav-link active" href="{% url 'worksite-list' %}">Worksites List</a>
                 </div>
             </div>
             <span class="hello-msg">Hello, {{request.user}}</span>
