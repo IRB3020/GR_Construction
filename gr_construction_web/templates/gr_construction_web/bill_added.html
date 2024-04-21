@@ -1,10 +1,23 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Added</title>
 </head>
 <body>
-$END$
+    <h1>Bill Added Successfully!</h1>
+    <h3>New Bill Details:</h3>
+    <p>Title: {{ new_bill.title }}</p>
+    <p>Amount: {{ new_bill.amount }}</p>
+    <p>Date: {{ new_bill.date }}</p>
+    <a href="{% url 'add-bill' worksite_id=worksite_id %}" class="btn btn-primary">Add Another Bill</a>
+    <a href="{% url 'bill-list' worksite_id=worksite_id %}" class="btn btn-success">View Bills List</a>
 </body>
 </html>
+
+{% endblock %}

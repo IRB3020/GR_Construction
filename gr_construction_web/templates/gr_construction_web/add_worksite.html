@@ -1,10 +1,66 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add WorkSite</title>
+    <style>
+        body {
+            background-color: #ede3d8;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #7172d8; /* Main banner color */
+            color: #fff; /* White text */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 5px solid #f0b356; /* Secondary banner color */
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar-brand img {
+            max-height: 200px;
+            padding: 5px;
+        }
+        .container-fluid {
+            padding-top: 20px;
+        }
+        .col-sm-10 {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <h1>Add WorkSite</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="finished_image">Finished Image:</label><br>
+        <input type="file" id="finished_image" name="finished_image"><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
+
+{% endblock %}

@@ -1,10 +1,29 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill List</title>
 </head>
 <body>
-$END$
+    <h1>Bill List for {{ worksite.title }}</h1>
+    <p><a href="{% url 'worksite-detail' worksite.id %}">View Worksite Details</a></p>
+    <p><a href="{% url 'add-bill' worksite.id %}">Add New Bill</a></p>
+    <ul>
+        {% for bill in bills %}
+        <li>
+            {{ bill.title }}: {{ bill.amount }} - <a href="{% url 'bill-detail' bill.id %}">View</a>
+            | <a href="{% url 'bill-edit' bill.id %}">Edit</a>
+            | <a href="{% url 'bill-delete' bill.id %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
+
+{% endblock %}
+

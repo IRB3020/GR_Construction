@@ -1,10 +1,37 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSite List</title>
 </head>
 <body>
-$END$
+    <div class="container">
+        <h2>Worksite List</h2>
+        <a href="{% url 'add-worksite' %}">Create New Site</a>
+        <ul>
+            {% for worksite in worksites %}
+            <li>
+                <div>
+                    <h2><a href="{{ worksite.get_absolute_url }}">{{ worksite.title }}</a></h2>
+                    {% if worksite.finished_image %}
+                    <img src="{{ worksite.finished_image.url }}" alt="Finished Image" style="max-width: 200px;">
+                    {% endif %}
+                    <div>
+                        <a href="{% url 'worksite-edit' worksite.id %}">Edit</a> |
+                        <a href="{% url 'worksite-delete' worksite.id %}">Delete</a> |
+                        <a href="{% url 'bill-list' worksite.id %}">Bills</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
+
+{% endblock %}

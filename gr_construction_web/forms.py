@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Client, Manager
+from .models import Client, Manager, WorkSite, Bill
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -26,3 +26,15 @@ class ManagerForm(ModelForm):
         model = Manager
         fields = ['name', 'email', 'phone_number']
         exclude = ['user']
+
+
+class WorkSiteForm(forms.ModelForm):
+    class Meta:
+        model = WorkSite
+        fields = ['title', 'address', 'description', 'client', 'finished_image']
+
+
+class BillForm(forms.ModelForm):
+    class Meta:
+        model = Bill
+        fields = ['title', 'amount', 'date']

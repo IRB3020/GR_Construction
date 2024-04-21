@@ -12,14 +12,16 @@
 <body>
     <div class="container">
         <h2>Clients List</h2>
+        <a href="{% url 'add-client' %}">Create New Client</a>
         <ul>
             {% for client in clients %}
-                <li>{{ client.name }} - <a href="{% url 'client-detail' client.id %}">View</a>
+                <li>
+                    {{ client.name }} - <a href="{% url 'client-detail' client.id %}">View</a>
                     | <a href="{% url 'client-edit' client.id %}">Edit</a>
-                    | <a href="{% url 'client-delete' client.id %}">Delete</a></li>
+                    | <a href="{% url 'client-delete' client.id %}">Delete</a>
+                </li>
             {% endfor %}
         </ul>
-        <a href="{% url 'add-client' %}">Create New Client</a>
     </div>
 </body>
 </html>

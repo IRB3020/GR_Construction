@@ -1,10 +1,22 @@
+{% extends "gr_construction_web/base_template.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if worksite %}Edit WorkSite{% else %}Add WorkSite{% endif %}</title>
 </head>
 <body>
-$END$
+    <h1>{% if worksite %}Edit WorkSite{% else %}Add WorkSite{% endif %}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if worksite %}Update{% else %}Add{% endif %}</button>
+    </form>
 </body>
 </html>
+
+{% endblock %}
