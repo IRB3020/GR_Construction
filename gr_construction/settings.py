@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Website Name:
     'gr_construction_web',
     'django.contrib.admin',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 AUTHENTICATION_BACKENDS = [
