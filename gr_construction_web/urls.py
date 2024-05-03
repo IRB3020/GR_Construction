@@ -11,6 +11,7 @@ urlpatterns = [
     path('register/', views.registerPage, name='register'),
 
     path('accounts/', include('django.contrib.auth.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
 
     path('add-client/', views.add_client, name='add-client'),
     path('client-added/', views.client_added, name='client-added'),

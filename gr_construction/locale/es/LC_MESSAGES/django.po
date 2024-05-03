@@ -1,0 +1,35 @@
+#: .\gr_construction\settings.py:123
+msgid "Spanish"
+msgstr ""
+
+#: .\gr_construction\settings.py:124
+msgid "English"
+msgstr ""
+
+#: .\gr_construction_web\models.py:35
+msgid "Date"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:71
+msgid "Home"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:72
+msgid "Register"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:73
+msgid "Clients List"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:74
+msgid "Worksites List"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:77
+msgid "Hello"
+msgstr ""
+
+#: .\gr_construction_web\templates\gr_construction_web\base_template.html:78
+msgid "Logout"
+msgstr ""

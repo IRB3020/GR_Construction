@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gr_construction_web',
     'django.contrib.admin',
     'django_cleanup.apps.CleanupConfig',
+    'translation_manager',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -50,12 +51,14 @@ AUTHENTICATION_BACKENDS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'gr_construction.urls'
 
@@ -116,11 +119,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = (
+    ('es', _('Spanish')),
+    ('en', _('English')),
+)
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+USE_L10N = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'gr_construction/locale')
+)
 
 
 # Static files (CSS, JavaScript, Images)

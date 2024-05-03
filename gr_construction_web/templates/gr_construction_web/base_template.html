@@ -1,3 +1,4 @@
+{% load i18n%}
 {% load static %}
 
 <!DOCTYPE html>
@@ -67,14 +68,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                    <a class="nav-link active" href="{% url 'register' %}">Register</a>
-                    <a class="nav-link active" href="{% url 'clients-list' %}">Clients List</a>
-                    <a class="nav-link active" href="{% url 'worksite-list' %}">Worksites List</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">{% trans "Home" %}</a>
+                    <a class="nav-link active" href="{% url 'register' %}">{% trans "Register" %}</a>
+                    <a class="nav-link active" href="{% url 'clients-list' %}">{% trans "Clients List" %}</a>
+                    <a class="nav-link active" href="{% url 'worksite-list' %}">{% trans "Worksites List" %}</a>
                 </div>
             </div>
-            <span class="hello-msg">Hello, {{request.user}}</span>
-            <span class="hello-msg"><a href="{% url 'logout' %}?next=/">Logout</a></span>
+            <span class="hello-msg">{% trans "Hello" %}, {{request.user}}</span>
+            <span class="hello-msg"><a href="{% url 'logout' %}?next=/">{% trans "Logout" %}</a></span>
         </div>
     </nav>
 
@@ -94,3 +95,4 @@
 </html>
 
 {% load static %}
+{% load i18n%}
